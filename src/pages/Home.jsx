@@ -27,19 +27,49 @@ export default function Home() {
       <HeroSection />
 
       {/* Product Suite */}
-      <section id="products" className="container mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold mb-10">Meet the VelionIQ Product Suite</h2>
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {products.map((p, idx) => (
-            <ProductTile key={idx} title={p.title} subtitle={p.subtitle} link={p.link} />
-          ))}
+      <section id="products" className="section-padding bg-gradient-to-br from-background to-primary-50">
+        <div className="container-custom">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-5xl font-display font-bold gradient-text mb-6">
+              Meet the VelionIQ Product Suite
+            </h2>
+            <p className="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+              Discover our comprehensive range of AI-powered solutions designed to transform 
+              your business operations and drive unprecedented efficiency.
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+            {products.map((p, idx) => (
+              <ProductTile 
+                key={idx} 
+                title={p.title} 
+                subtitle={p.subtitle} 
+                link={p.link} 
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Why Choose Section */}
-      <section className="bg-primary text-white py-16 px-6 text-center">
-        <h2 className="text-2xl font-bold mb-6">Why Choose VelionIQ?</h2>
-        <FeatureBadgeGroup features={benefits} />
+      <section className="section-padding bg-gradient-to-br from-primary-950 to-primary-800 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#ffffff20,transparent)]"></div>
+        </div>
+        
+        <div className="container-custom relative">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-5xl font-display font-bold mb-6">
+              Why Choose VelionIQ?
+            </h2>
+            <p className="text-xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
+              Experience the difference of working with industry-leading AI solutions 
+              that are built for scale and designed for success.
+            </p>
+          </div>
+          <FeatureBadgeGroup features={benefits} />
+        </div>
       </section>
 
       {/* Metrics */}
@@ -49,7 +79,7 @@ export default function Home() {
       <TestimonialsSection />
 
       {/* Contact */}
-      <section id="contact" className="py-16">
+      <section id="contact">
         <ContactForm />
       </section>
     </>
