@@ -63,12 +63,17 @@ export default function Home() {
             <h2 className="text-5xl font-display font-bold mb-6">
               Why Choose VelionIQ?
             </h2>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
-              Experience the difference of working with industry-leading AI solutions 
-              that are built for scale and designed for success.
-            </p>
           </div>
-          <FeatureBadgeGroup features={benefits} />
+          <div className="flex flex-wrap justify-center gap-4 animate-slide-up">
+            {benefits.map((benefit, idx) => (
+              <button
+              key={idx}
+              className="text-white border border-white bg-transparent rounded-full px-5 py-2 text-sm font-medium hover:bg-white hover:text-primary-950 transition duration-200"
+              >{benefit}
+              </button>
+            ))}
+            </div>
+
         </div>
       </section>
 

@@ -84,10 +84,6 @@ export default function Flowgenix() {
                 <span>Try Flowgenix Now</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <button className="btn-secondary flex items-center space-x-2">
-                <Download className="w-5 h-5" />
-                <span>Download Demo</span>
-              </button>
             </div>
           </div>
         </div>
@@ -98,7 +94,7 @@ export default function Flowgenix() {
         <div className="container-custom">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Powerful Features
+              Key Features
             </h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
               Everything you need to automate your document workflows with enterprise-grade precision
@@ -179,63 +175,7 @@ export default function Flowgenix() {
         </div>
       </section>
 
-      {/* Benefits/Stats Section */}
-      <section className="section-padding bg-surface">
-        <div className="container-custom">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Proven Results
-            </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Join hundreds of businesses already transforming their document workflows
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center animate-slide-up">
-                <div className="card p-8">
-                  <div className="text-4xl font-display font-bold gradient-text mb-2">
-                    {benefit.metric}
-                  </div>
-                  <div className="text-secondary-600 font-medium">
-                    {benefit.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="container-custom">
-          <div className="text-center animate-slide-up">
-            <h2 className="text-4xl font-display font-bold mb-6">
-              Ready to Transform Your Document Workflows?
-            </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
-              Start automating your document processing today with Flowgenix's powerful AI-driven platform.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://flowgenix.velioniq.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-primary-600 hover:bg-primary-50 font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-dreamy transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Launch Flowgenix</span>
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
-                <Users className="w-5 h-5" />
-                <span>Schedule Demo</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

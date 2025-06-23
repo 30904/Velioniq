@@ -63,17 +63,14 @@ export default function Industries() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-primary-50">
       {/* Hero Section */}
-      <section className="section-padding">
+      <section className="section-padding py-12">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-slide-up">
+          <div className="text-center mb-8 animate-slide-up">
             <h1 className="text-6xl font-display font-bold gradient-text mb-6">
               Industries We Serve
             </h1>
             <p className="text-2xl text-secondary-600 mb-8 max-w-4xl mx-auto leading-relaxed">
               Transforming operations across diverse industries with AI-powered automation solutions
-            </p>
-            <p className="text-lg text-secondary-500 max-w-5xl mx-auto leading-relaxed">
-              From manufacturing giants to agile startups, our suite of AI tools adapts to your industry's unique challenges and accelerates your digital transformation journey.
             </p>
           </div>
         </div>
@@ -116,65 +113,6 @@ export default function Industries() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-accent-50">
-        <div className="container-custom">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Cross-Industry Impact
-            </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Delivering measurable results across all industries we serve
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center animate-slide-up">
-                <div className="card p-8">
-                  <div className="flex items-center justify-center mb-4">
-                    <TrendingUp className="w-8 h-8 text-primary-600" />
-                  </div>
-                  <div className="text-4xl font-display font-bold gradient-text mb-2">
-                    {benefit.metric}
-                  </div>
-                  <div className="text-secondary-600 font-medium">
-                    {benefit.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="container-custom">
-          <div className="text-center animate-slide-up">
-            <h2 className="text-4xl font-display font-bold mb-6">
-              Ready to Transform Your Industry?
-            </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
-              Join hundreds of companies already revolutionizing their operations with VelionIQ's AI-powered solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                className="bg-white text-primary-600 hover:bg-primary-50 font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-dreamy transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Get Industry-Specific Demo</span>
-              </a>
-              <a
-                href="#products"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Explore Solutions</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

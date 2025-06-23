@@ -1,36 +1,54 @@
 import React from 'react';
-import { ClipboardCheck, Shield, AlertCircle, CheckCircle, BarChart3, Users, Calendar } from 'lucide-react';
+import { ClipboardCheck, CheckCircle } from 'lucide-react';
 import ComingSoonModal from '../components/ComingSoonModal';
 
 export default function ClaimWise() {
   const features = [
     {
       icon: ClipboardCheck,
-      title: 'Automated Claim Validation',
-      description: 'Intelligent validation of warranty claims against purchase history and product specifications'
-    },
-    {
-      icon: Shield,
-      title: 'Fraud Detection',
-      description: 'Advanced AI algorithms detect suspicious patterns and potential fraudulent claims'
-    },
-    {
-      icon: BarChart3,
-      title: 'Analytics Dashboard',
-      description: 'Comprehensive insights into claim patterns, costs, and validation performance'
+      title: 'Claim Parsing',
+      description: 'Extract claim details from emails or portal uploads for streamlined processing.'
     },
     {
       icon: CheckCircle,
-      title: 'Automated Processing',
-      description: 'Streamlined claim approval workflows with intelligent routing and notifications'
+      title: 'AI-based Eligibility Check',
+      description: 'Validate claims against policy, invoice, and repair history for accurate decisions.'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Automated Decision Suggestions',
+      description: 'AI suggests approve/reject actions based on policy data and service logs.'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Claim Dashboard with SLA Tracking',
+      description: 'Monitor claim statuses and SLA performance in real time.'
+    },
+    {
+      icon: CheckCircle,
+      title: 'CRM/Warranty System Integration',
+      description: 'Seamless integration with existing customer support systems.'
+    },
+    {
+      icon: CheckCircle,
+      title: 'TAT Reports & Exception Logs',
+      description: 'Download reports for turnaround time analysis and exception insights.'
     }
   ];
 
-  const benefits = [
-    { metric: '95%', label: 'Claim Accuracy' },
-    { metric: '70%', label: 'Processing Speed' },
-    { metric: '40%', label: 'Cost Reduction' },
-    { metric: '99%', label: 'Fraud Detection' }
+  const useCases = [
+    {
+      title: 'Customer Support Teams',
+      description: 'Improve satisfaction by reducing claim turnaround times.'
+    },
+    {
+      title: 'Appliance & Automotive Sectors',
+      description: 'Ensure consistent and fair warranty resolutions for high-value equipment.'
+    },
+    {
+      title: 'Service Teams',
+      description: 'Automate workflows and reduce manual review time.'
+    }
   ];
 
   return (
@@ -46,17 +64,13 @@ export default function ClaimWise() {
               ClaimWise
             </h1>
             <p className="text-2xl text-secondary-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Intelligent Warranty Claim Validation System
+              Automated Warranty Claim Validation and Resolution Assistant
             </p>
             <p className="text-lg text-secondary-500 max-w-4xl mx-auto leading-relaxed mb-12">
-              ClaimWise automates warranty claim processing with AI-powered validation, fraud detection, and intelligent routing to ensure accurate and efficient claim management.
+              ClaimWise uses AI to validate and process warranty claims by comparing claim documents, product history, service logs, and policy coverage. It reduces turnaround time and improves accuracy in warranty decision-making.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center text-black">
               <ComingSoonModal buttonLabel="🚀 Try ClaimWise" />
-              <button className="btn-secondary flex items-center space-x-2">
-                <Users className="w-5 h-5" />
-                <span>Schedule Demo</span>
-              </button>
             </div>
           </div>
         </div>
@@ -67,11 +81,8 @@ export default function ClaimWise() {
         <div className="container-custom">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Intelligent Claim Processing
+              Key Features
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Revolutionize your warranty claim management with AI-powered automation
-            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -98,55 +109,26 @@ export default function ClaimWise() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Use Cases Section */}
       <section className="section-padding bg-gradient-to-br from-secondary-50 to-primary-50">
         <div className="container-custom">
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Proven Results
+              Ideal Use Cases
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Transform your warranty claim process with measurable improvements
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center animate-slide-up">
-                <div className="card p-8">
-                  <div className="text-4xl font-display font-bold gradient-text mb-2">
-                    {benefit.metric}
-                  </div>
-                  <div className="text-secondary-600 font-medium">
-                    {benefit.label}
-                  </div>
-                </div>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {useCases.map((useCase, index) => (
+              <div key={index} className="card p-8 text-center card-hover animate-slide-up">
+                <h3 className="text-xl font-display font-semibold text-secondary-900 mb-3">
+                  {useCase.title}
+                </h3>
+                <p className="text-secondary-600 leading-relaxed">
+                  {useCase.description}
+                </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-rose-600 to-red-600 text-white">
-        <div className="container-custom">
-          <div className="text-center animate-slide-up">
-            <h2 className="text-4xl font-display font-bold mb-6">
-              Ready to Revolutionize Claim Processing?
-            </h2>
-            <p className="text-xl text-rose-100 mb-8 max-w-3xl mx-auto">
-              Join the waitlist to be among the first to experience ClaimWise's intelligent warranty management.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ComingSoonModal 
-                buttonLabel="Join Early Access" 
-                className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-dreamy transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              />
-              <button className="border-2 border-white text-white hover:bg-white hover:text-rose-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
-                <Calendar className="w-5 h-5" />
-                <span>Book Preview</span>
-              </button>
-            </div>
           </div>
         </div>
       </section>

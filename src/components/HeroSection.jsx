@@ -24,17 +24,7 @@ export default function HeroSection() {
       <div className="relative section-padding flex items-center min-h-screen">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto text-center">
-            {/* Badge */}
-            <div 
-              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 animate-slide-down"
-              data-aos="fade-down"
-              data-aos-delay="100"
-            >
-              <Sparkles className="w-5 h-5 text-accent-400" />
-              <span className="text-sm font-medium text-primary-100">
-                Enterprise AI Solutions
-              </span>
-            </div>
+          
 
             {/* Main Heading */}
             <h1
@@ -83,32 +73,12 @@ export default function HeroSection() {
               </a>
             </div>
 
-            {/* Stats */}
-            <div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 animate-slide-up"
-              data-aos="fade-up"
-              data-aos-delay="800"
-            >
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">500+</div>
-                <div className="text-primary-300 text-sm">Enterprise Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">98%</div>
-                <div className="text-primary-300 text-sm">Accuracy Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">6</div>
-                <div className="text-primary-300 text-sm">AI Products</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">24/7</div>
-                <div className="text-primary-300 text-sm">Support</div>
-              </div>
+           
+              
             </div>
           </div>
         </div>
-      </div>
+     
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

@@ -139,7 +139,7 @@ export default function ContactForm() {
           {/* Header */}
           <div className="text-center mb-16 animate-slide-up">
             <h2 className="text-5xl font-display font-bold gradient-text mb-6">
-              Let's Start a Conversation
+              Start a Conversation
             </h2>
             <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
               Ready to transform your business with AI? We'd love to hear from you. 

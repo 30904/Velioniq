@@ -59,10 +59,6 @@ export default function AutoRecon() {
                 <span>Launch AutoRecon</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <button className="btn-secondary flex items-center space-x-2">
-                <Users className="w-5 h-5" />
-                <span>Schedule Demo</span>
-              </button>
             </div>
           </div>
         </div>
@@ -121,62 +117,6 @@ export default function AutoRecon() {
                   <span className="text-secondary-700">{feature}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="section-padding bg-gradient-to-br from-secondary-50 to-primary-50">
-        <div className="container-custom">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl font-display font-bold text-secondary-900 mb-6">
-              Proven Performance
-            </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Experience measurable improvements in procurement accuracy and efficiency
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center animate-slide-up">
-                <div className="card p-8">
-                  <div className="text-4xl font-display font-bold gradient-text mb-2">
-                    {benefit.metric}
-                  </div>
-                  <div className="text-secondary-600 font-medium">
-                    {benefit.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
-        <div className="container-custom">
-          <div className="text-center animate-slide-up">
-            <h2 className="text-4xl font-display font-bold mb-6">
-              Ready to Automate Your Reconciliation?
-            </h2>
-            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
-              Transform your procurement reconciliation process with AutoRecon's intelligent matching capabilities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#"
-                className="bg-white text-emerald-600 hover:bg-emerald-50 font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-dreamy transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <span>Start Free Trial</span>
-                <ExternalLink className="w-5 h-5" />
-              </a>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2">
-                <Calendar className="w-5 h-5" />
-                <span>Book Consultation</span>
-              </button>
             </div>
           </div>
         </div>

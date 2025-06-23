@@ -63,7 +63,7 @@ export default function NavBar() {
                 onMouseEnter={() => setIsProductsDropdownOpen(true)}
                 onMouseLeave={() => setIsProductsDropdownOpen(false)}
               >
-                <span>Products</span>
+                <span>Product Suite</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -136,7 +136,7 @@ export default function NavBar() {
                 duration={500}
                 className="btn-primary cursor-pointer"
               >
-                Get Started
+                Contact
               </ScrollLink>
             ) : (
               <Link

@@ -7,7 +7,7 @@ export default function ComingSoonModal({ buttonLabel = "Try It Out" }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-block bg-primary text-white px-6 py-3 rounded shadow hover:bg-opacity-90 transition"
+        className="inline-block bg-primary text-black px-6 py-3 rounded shadow hover:bg-opacity-90 transition"
       >
         {buttonLabel}
       </button>
@@ -21,7 +21,7 @@ export default function ComingSoonModal({ buttonLabel = "Try It Out" }) {
             </p>
             <button
               onClick={() => setOpen(false)}
-              className="bg-primary text-white px-4 py-2 rounded hover:bg-opacity-90 transition"
+              className="bg-primary text-black px-4 py-2 rounded hover:bg-opacity-90 transition"
             >
               Close
             </button>
