@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+body {
+  @apply font-inter bg-background text-gray-900;
+}
+
+a {
+  @apply text-blue-600 hover:underline;
+}
+
+html {
+  scroll-behavior: smooth;
+}
