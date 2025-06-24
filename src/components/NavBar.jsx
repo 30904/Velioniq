@@ -37,11 +37,11 @@ export default function NavBar() {
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group flex-shrink-0">
             <img 
               src="/logo.png" 
               alt="VelionIQ Logo" 
-              className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              className="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
             />
           </Link>
 
