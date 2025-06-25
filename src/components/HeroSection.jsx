@@ -1,91 +1,184 @@
-import { useEffect } from 'react'
-import { ArrowRight, Sparkles, Play } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { ArrowRight, Play } from 'lucide-react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 export default function HeroSection() {
+  const ref = useRef(null)
+  const videoRef = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const controls = useAnimation()
+
   useEffect(() => {
     AOS.init({ once: true })
+    if (isInView) {
+      controls.start("visible")
+    }
+  }, [isInView, controls])
+
+  // Ensure video plays
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video autoplay failed:", error)
+      })
+    }
   }, [])
 
+  // Animation variants for text only
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5,
+        staggerChildren: 0.3
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_200px,#ffffff15,transparent)]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%227%22%20cy%3D%227%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+    <section 
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/motion-graphics.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary-400/10 rounded-full animate-float"></div>
-      <div className="absolute top-40 right-20 w-16 h-16 bg-accent-400/10 rounded-full animate-bounce-gentle"></div>
-      <div className="absolute bottom-40 left-20 w-12 h-12 bg-primary-300/10 rounded-full animate-pulse-soft"></div>
+      {/* Minimal dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative section-padding flex items-center min-h-screen">
+      {/* Content Container */}
+      <div className="relative z-10 section-padding flex items-center min-h-screen w-full">
         <div className="container-custom">
-          <div className="max-w-6xl mx-auto text-center">
-          
-
+          <motion.div 
+            className="max-w-6xl mx-auto text-center"
+            variants={containerVariants}
+            initial="hidden"
+            animate={controls}
+          >
             {/* Main Heading */}
-            <h1
-              className="text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-tight animate-slide-up"
-              data-aos="fade-up"
-              data-aos-delay="200"
+            <motion.h1
+              variants={itemVariants}
+              className="text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-8 leading-tight text-white"
             >
-              <span className="block bg-gradient-to-r from-white via-primary-100 to-accent-200 bg-clip-text text-transparent">
+              <motion.span 
+                className="block"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 1 }}
+              >
                 AI-Powered Tool Suite
-              </span>
-              <span className="block text-primary-100 mt-4">
+              </motion.span>
+              <motion.span 
+                className="block mt-4 text-gray-200"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 1 }}
+              >
                 Built for Enterprise Excellence
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
 
             {/* Subtitle */}
-            <p
-              className="text-xl md:text-2xl text-primary-200 max-w-4xl mx-auto leading-relaxed mb-12 animate-slide-up"
-              data-aos="fade-up"
-              data-aos-delay="400"
+            <motion.p
+              variants={itemVariants}
+              className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12"
             >
               Revolutionize your business with intelligent automation, document intelligence, 
               and operational AI built to accelerate enterprise decision-making.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up"
-              data-aos="zoom-in"
-              data-aos-delay="600"
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
-              <a
+              <motion.a
                 href="#contact"
-                className="group bg-white text-primary-900 hover:bg-primary-50 font-bold px-8 py-4 rounded-2xl shadow-elegant hover:shadow-dreamy transform hover:scale-105 transition-all duration-300 flex items-center space-x-3"
+                className="group bg-white text-gray-900 hover:bg-gray-100 font-bold px-8 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 relative overflow-hidden transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2,
+                  boxShadow: "0 25px 50px rgba(255, 255, 255, 0.2)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <span>Get a Demo</span>
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-              </a>
+                <span className="relative z-10">Get a Demo</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ArrowRight className="w-5 h-5 relative z-10" />
+                </motion.div>
+              </motion.a>
               
-              <a
+              <motion.a
                 href="#products"
-                className="group border-2 border-white/30 hover:border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-4 rounded-2xl transition-all duration-300 flex items-center space-x-3"
+                className="group border-2 border-white/50 hover:border-white text-white hover:bg-white/10 backdrop-blur-sm font-bold px-8 py-4 rounded-2xl flex items-center space-x-3 relative overflow-hidden transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2,
+                  borderColor: "rgba(255, 255, 255, 0.8)",
+                  backgroundColor: "rgba(255, 255, 255, 0.1)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Play className="w-5 h-5" />
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Play className="w-5 h-5" />
+                </motion.div>
                 <span>Explore Suite</span>
-              </a>
-            </div>
-
-           
-              
-            </div>
-          </div>
-        </div>
-     
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <motion.div 
+          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center cursor-pointer"
+          whileHover={{ scale: 1.1, borderColor: "rgba(255, 255, 255, 0.8)" }}
+        >
+          <motion.div 
+            className="w-1 h-3 bg-white/70 rounded-full mt-2"
+            animate={{ y: [0, 12, 0], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
